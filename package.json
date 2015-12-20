@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/blp1526/electron_test/issues"
   },
-  "homepage": "https://github.com/blp1526/electron_test#readme"
+  "homepage": "https://github.com/blp1526/electron_test#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.1"
+  }
 }
