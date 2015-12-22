@@ -18,5 +18,10 @@
   "homepage": "https://github.com/blp1526/electron_test#readme",
   "devDependencies": {
     "electron-prebuilt": "^0.36.1"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true
+    }
   }
 }
