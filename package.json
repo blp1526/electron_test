@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "app": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter test",
+    "tree": "tree -a -I '.git|node_modules'"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,8 @@
   },
   "homepage": "https://github.com/blp1526/electron_test#readme",
   "devDependencies": {
-    "electron-prebuilt": "^0.36.1"
+    "electron-prebuilt": "^0.36.1",
+    "mocha": "^2.3.4"
   },
   "eslintConfig": {
     "env": {
