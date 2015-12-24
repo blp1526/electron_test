@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "app": "electron .",
-    "test": "mocha --reporter test",
+    "test": "mocha --recursive --reporter spec test",
     "tree": "tree -a -I '.git|node_modules'"
   },
   "repository": {

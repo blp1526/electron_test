@@ -2,21 +2,20 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <script src="index.js" defer></script>
     <title>Timekeeper</title>
   </head>
 
   <body>
     <h1>Timekeeper</h1>
-    <form action="">
-      <p>
-        <label>Speaker Name</label>
-        <input type="text">
-      </p>
-      <p>
-        <label>Left Minutes</label>
-        <input type="number">
-      </p>
-    </form>
-    <button>Run</button>
+    <p>
+      <label>Speaker Name</label>
+      <input type="text" id="speakerName">
+    </p>
+    <p>
+      <label>Limit Minutes</label>
+      <input type="number" id="limitMinutes">
+    </p>
+    <button onclick="run()">Run</button>
   </body>
 </html>
