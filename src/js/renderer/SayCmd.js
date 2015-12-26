@@ -1,9 +1,14 @@
 var SayCmd = function() {
 };
 
-SayCmd.execute = function(script) {
-  const execSync = require('child_process').execSync;
-  execSync('say -v Kyoko ' + script);
+SayCmd.spawnSync = function(script) {
+  const spawnSync = require('child_process').spawnSync;
+  spawnSync('say', ['-v', 'Kyoko', script]);
+};
+
+SayCmd.spawn = function(script) {
+  const spawn = require('child_process').spawn;
+  spawn('say', ['-v', 'Kyoko', script]);
 };
 
 module.exports = SayCmd;

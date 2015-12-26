@@ -5,5 +5,19 @@ function run() {
   const speakerName = document.getElementById("speakerName").value;
   const limitMinutes = document.getElementById("limitMinutes").value;
   const tk = new Timekeeper(speakerName, limitMinutes);
-  SayCmd.execute(tk.start());
-};
+
+  var currentSeconds = parseInt(limitMinutes) * 60;
+
+  SayCmd.spawnSync(tk.start());
+
+  function repetition() {
+    var timeoutlId = setTimeout(repetition, 1000);
+    document.getElementById("currentSeconds").innerHTML = currentSeconds + " seconds left";
+    if (currentSeconds < 1) {
+      SayCmd.spawn(tk.finish());
+      clearTimeout(timeoutlId);
+    }
+    currentSeconds--;
+  }
+  repetition();
+}
