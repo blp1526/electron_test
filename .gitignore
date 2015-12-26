@@ -85,3 +85,23 @@ Session.vim
 *~
 
 
+### https://raw.github.com/github/gitignore/c608298e61930c0d8f72b31921df7dcaed18a28a/Global/Tags.gitignore
+
+# Ignore tags created by etags, ctags, gtags (GNU global) and cscope
+TAGS
+.TAGS
+!TAGS/
+tags
+.tags
+!tags/
+gtags.files
+GTAGS
+GRTAGS
+GPATH
+cscope.files
+cscope.out
+cscope.in.out
+cscope.po.out
+
+
+
