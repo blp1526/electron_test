@@ -11,8 +11,8 @@ describe('new Timekeeper("名無し", 10)', function() {
   });
 
   describe('#progress(5)', function() {
-    it('should be "残り5分です。"', function() {
-      assert.equal(tk.progress(5), '残り5分です。');
+    it('should be "残り5分です。まとめに入りましょう。"', function() {
+      assert.equal(tk.progress(5), '残り5分です。まとめに入りましょう。');
     });
   });
 

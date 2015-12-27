@@ -6,7 +6,8 @@ function run() {
   const limitMinutes = document.getElementById("limitMinutes").value;
   const tk = new Timekeeper(speakerName, limitMinutes);
 
-  var currentSeconds = parseInt(limitMinutes) * 60;
+  var limitSeconds = parseInt(limitMinutes) * 60;
+  var currentSeconds = limitSeconds;
 
   SayCmd.spawnSync(tk.start());
 
@@ -16,6 +17,8 @@ function run() {
     if (currentSeconds < 1) {
       SayCmd.spawn(tk.finish());
       clearTimeout(timeoutlId);
+    } else if ((currentSeconds != limitSeconds) && (currentSeconds == 180)) {
+      SayCmd.spawn(tk.progress(3));
     }
     currentSeconds--;
   }
