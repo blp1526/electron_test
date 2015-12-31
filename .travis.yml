@@ -3,3 +3,6 @@ node_js:
   - "5.0.0"
 install:
   - npm install
+notifications:
+  webhooks:
+    - https://idobata.io/hook/travis_ci/27b081c0-19f7-453b-95e2-7cf8bafbe669
