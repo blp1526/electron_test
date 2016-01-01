@@ -1,7 +1,7 @@
 var Timekeeper = function(params) {
   this.speakerName    = params['speakerName'];
   this.limitMinutes   = parseInt(params['limitMinutes']);
-  this.leftMinutes    = parseInt(params['leftMinutes']);
+  this.leftMinutes    = this.limitMinutes;
   this.limitSeconds   = this.limitMinutes * 60;
   this.currentSeconds = this.limitSeconds;
 };
