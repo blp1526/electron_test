@@ -6,8 +6,7 @@ document.getElementById("run").addEventListener('click', function() {
 
   var params = {
     speakerName:  document.getElementById("speakerName").value,
-    limitMinutes: document.getElementById("limitMinutes").value,
-    leftMinutes:  document.getElementById("limitMinutes").value
+    limitMinutes: document.getElementById("limitMinutes").value
   }
   var tk = new Timekeeper(params);
 

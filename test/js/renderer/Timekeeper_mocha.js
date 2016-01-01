@@ -2,7 +2,7 @@ const assert = require('assert');
 const Timekeeper = require(process.cwd() + '/src/js/renderer/Timekeeper');
 
 describe('Timekeeper', function() {
-  const params = { speakerName: 'nanashi', limitMinutes: '10', leftMinutes: '3' };
+  var params = { speakerName: 'nanashi', limitMinutes: '10' };
   var tk = new Timekeeper(params);
 
   describe('.prototype.message()', function() {
@@ -13,7 +13,7 @@ describe('Timekeeper', function() {
     });
     context('when type is "progress"', function() {
       it('should be "残り${this.leftMinutes}分です。まとめに入りましょう。"', function() {
-        assert.equal(tk.message('progress'), '残り3分です。まとめに入りましょう。');
+        assert.equal(tk.message('progress'), '残り10分です。まとめに入りましょう。');
       });
     });
     context('when type is "finish"', function() {
