@@ -6,6 +6,7 @@
   "scripts": {
     "app": "electron .",
     "test": "mocha --recursive --reporter spec test",
+    "watch": "mocha --recursive --reporter spec --watch test",
     "tree": "tree -a -I '.git|node_modules'"
   },
   "repository": {

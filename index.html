@@ -8,17 +8,30 @@
   </head>
 
   <body>
-    <h1>Timekeeper</h1>
-    <p id="alert" class="alert"></p>
-    <p>
-      <label>Speaker Name : </label>
-      <input type="text" id="speakerName" value="nanashi">
-    </p>
-    <p>
-      <label>Limit Minutes : </label>
-      <input type="number" id="limitMinutes" min="1" value="10">
-    </p>
-    <p id="currentSeconds"></p>
-    <button id="run">Run</button>
+    <header class="header">
+      <h1>Timekeeper</h1>
+    </header>
+
+    <div class="wrapper">
+      <div class="side">
+      </div>
+
+      <main class="main">
+        <p id="alert" class="alert"></p>
+        <p>
+          <label>Speaker Name : </label>
+          <input type="text" id="speakerName" value="nanashi">
+        </p>
+        <p>
+          <label>Limit Minutes : </label>
+          <input type="number" id="limitMinutes" min="1" value="10">
+        </p>
+        <p id="currentSeconds"></p>
+        <button id="run">Run</button>
+      </main>
+    </div>
+
+    <footer class="footer">
+    </footer>
   </body>
 </html>

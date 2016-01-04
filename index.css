@@ -1,3 +1,18 @@
+@charset "UTF-8";
+
+html {
+}
+
+.header {
+}
+
+body {
+  color: #333;
+}
+
 .alert {
   color: red;
+}
+
+.footer {
 }
