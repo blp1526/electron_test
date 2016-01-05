@@ -2,36 +2,64 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="assets/stylesheets/photon.css">
+    <link rel="stylesheet" href="assets/stylesheets/index.css">
     <script src="index.js" defer></script>
     <title>Timekeeper</title>
   </head>
 
   <body>
-    <header class="header">
-      <h1>Timekeeper</h1>
-    </header>
+    <div class="window">
+      <header class="toolbar toolbar-footer">
+        <div class="toolbar-actions">
+          <button class="btn btn-default">
+            New
+          </button>
+        </div>
+      </header>
 
-    <div class="wrapper">
-      <div class="side">
+      <div class="window-content">
+        <div class="pane-group">
+          <div class="pane-sm sidebar">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="media-body">
+                  <strong>Jane Doe</strong>
+                  <p>3 Minutes</p>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="media-body">
+                  <strong>Jane Doe</strong>
+                  <p>3 Minutes</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pane">
+            <div class="form">
+              <p id="alert" class="alert"></p>
+              <div class="form-group">
+                <label>Speaker Name</label>
+                <input type="text" id="speakerName" class="form-control" value="nanashi">
+              </div>
+              <div class="form-group">
+                <label>Limit Minutes</label>
+                <input type="number" id="limitMinutes" class="form-control" min="1" value="3">
+              </div>
+              <p id="currentSeconds"></p>
+              <div class="form-actions">
+                <button id="run" class="btn btn-large btn-default">Run</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <main class="main">
-        <p id="alert" class="alert"></p>
-        <p>
-          <label>Speaker Name : </label>
-          <input type="text" id="speakerName" value="nanashi">
-        </p>
-        <p>
-          <label>Limit Minutes : </label>
-          <input type="number" id="limitMinutes" min="1" value="10">
-        </p>
-        <p id="currentSeconds"></p>
-        <button id="run">Run</button>
-      </main>
+      <footer class="toolbar toolbar-footer">
+        <h1 class="title"></h1>
+      </footer>
     </div>
-
-    <footer class="footer">
-    </footer>
   </body>
 </html>

@@ -1,11 +1,5 @@
 @charset "UTF-8";
 
-html {
-}
-
-.header {
-}
-
 body {
   color: #333;
 }
@@ -14,5 +8,6 @@ body {
   color: red;
 }
 
-.footer {
+.form {
+  margin: 10px;
 }
