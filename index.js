@@ -19,7 +19,7 @@ document.getElementById("run").addEventListener('click', function() {
         if (tk.currentSeconds % 60 === 0) {
           tk.leftMinutes--;
         }
-        if (tk.currentSeconds === 180) {
+        if (tk.currentSeconds === 60) {
           SayCmd.spawn(tk.message("progress"));
         }
         if (tk.currentSeconds < 1) {
