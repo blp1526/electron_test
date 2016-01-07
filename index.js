@@ -1,7 +1,7 @@
 const SayCmd = require(process.cwd() + '/src/js/renderer/SayCmd');
 const Timekeeper = require(process.cwd() + '/src/js/renderer/Timekeeper');
 
-document.getElementById("run").addEventListener('click', function() {
+document.getElementById("run").addEventListener("click", function() {
   document.getElementById("alert").innerHTML = "";
 
   var params = {
@@ -34,3 +34,16 @@ document.getElementById("run").addEventListener('click', function() {
     document.getElementById("alert").innerHTML = "Fill fields!";
   }
 });
+
+var activate = function() {
+  var elements =  document.querySelectorAll(".list-group-item");
+  for(var i = 0; i < elements.length; i++) {
+    elements[i].addEventListener("click", function() {
+      for(var j = 0; j < elements.length; j++) {
+        elements[j].classList.remove("active");
+      }
+      this.classList.add("active");
+    });
+  }
+};
+activate();
