@@ -43,7 +43,23 @@ var activate = function() {
         elements[j].classList.remove("active");
       }
       this.classList.add("active");
+      document.getElementById("speakerName").value = this.querySelector('.speaker-name').innerText;
+      document.getElementById("limitMinutes").value = this.querySelector('.limit-minutes').innerText;
     });
   }
 };
 activate();
+
+document.getElementById("speakerName").addEventListener("keyup", function() {
+  const liSpeakerName = document.querySelector(".active .speaker-name");
+  if (liSpeakerName.innerText != this.value) {
+    liSpeakerName.innerText = this.value;
+  }
+});
+
+document.getElementById("limitMinutes").addEventListener("keyup", function() {
+  const pLimitMinutes = document.querySelector(".active .limit-minutes");
+  if (pLimitMinutes.innerText != this.value) {
+    pLimitMinutes.innerText = this.value;
+  }
+});
