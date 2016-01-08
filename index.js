@@ -63,3 +63,12 @@ document.getElementById("limitMinutes").addEventListener("keyup", function() {
     pLimitMinutes.innerText = this.value;
   }
 });
+
+document.getElementById("add-button").addEventListener("click", function() {
+  var cloneList = document.querySelectorAll(".list-group-item")[0].cloneNode(true);
+  cloneList.classList.remove("active");
+  cloneList.querySelector(".speaker-name").innerText = "";
+  cloneList.querySelector(".limit-minutes").innerText = "";
+  document.getElementById("addable-list-group").appendChild(cloneList);
+  activate();
+});
