@@ -15,3 +15,7 @@ body {
 .left-icon {
   padding-right: 10px;
 }
+
+.undisplay {
+  display: none;
+}

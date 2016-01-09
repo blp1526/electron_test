@@ -51,16 +51,16 @@ var activate = function() {
 activate();
 
 document.getElementById("speakerName").addEventListener("keyup", function() {
-  const liSpeakerName = document.querySelector(".active .speaker-name");
-  if (liSpeakerName.innerText != this.value) {
-    liSpeakerName.innerText = this.value;
+  const activeSpeakerName = document.querySelector(".active .speaker-name");
+  if (activeSpeakerName.innerText != this.value) {
+    activeSpeakerName.innerText = this.value;
   }
 });
 
 document.getElementById("limitMinutes").addEventListener("keyup", function() {
-  const pLimitMinutes = document.querySelector(".active .limit-minutes");
-  if (pLimitMinutes.innerText != this.value) {
-    pLimitMinutes.innerText = this.value;
+  const activeLimitMinutes = document.querySelector(".active .limit-minutes");
+  if (activeLimitMinutes.innerText != this.value) {
+    activeLimitMinutes.innerText = this.value;
   }
 });
 
@@ -70,5 +70,15 @@ document.getElementById("add-button").addEventListener("click", function() {
   cloneList.querySelector(".speaker-name").innerText = "";
   cloneList.querySelector(".limit-minutes").innerText = "";
   document.getElementById("addable-list-group").appendChild(cloneList);
+  document.getElementById("delete-button").classList.remove("undisplay");
   activate();
+});
+
+document.getElementById("delete-button").addEventListener("click", function() {
+  var activeList = document.querySelector(".active");
+  activeList.parentNode.removeChild(activeList);
+  document.querySelectorAll(".list-group-item")[0].classList.add("active");
+  if (document.querySelectorAll(".list-group-item").length === 1) {
+    document.getElementById("delete-button").classList.add("undisplay");
+  }
 });
