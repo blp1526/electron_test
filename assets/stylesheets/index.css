@@ -12,7 +12,11 @@ body {
   margin: 10px;
 }
 
-.left-icon {
+.left-space {
+  padding-left: 10px;
+}
+
+.right-space {
   padding-right: 10px;
 }
 
