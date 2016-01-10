@@ -1,3 +1,5 @@
+var pluralize = require('pluralize')
+
 var Timekeeper = function(params) {
   this.speakerName    = params['speakerName'];
   this.limitMinutes   = parseInt(params['limitMinutes']);
@@ -9,13 +11,13 @@ var Timekeeper = function(params) {
 Timekeeper.prototype.message = function(type) {
   switch (type) {
     case 'start':
-      return this.speakerName + 'さん、発表をお願いします。持ち時間は' + this.limitMinutes + '分です。';
+      return `${this.speakerName}. Time limit is ${this.limitMinutes} ${pluralize("minute", this.limitMinutes)}. Start!`;
       break;
     case 'progress':
-      return '残り' + this.leftMinutes + '分です。まとめに入りましょう。';
+      return `The remaining time is ${this.leftMinutes} ${pluralize("minute", this.leftMinutes)}.`;
       break;
     case 'finish':
-      return '終了時間です。ありがとうございました。';
+      return "Time is over. Thank you for your speach.";
       break;
     default:
       throw new Error('Unexpected Argument');

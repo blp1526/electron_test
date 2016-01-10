@@ -1,7 +1,7 @@
 const SayCmd = require(process.cwd() + '/src/js/renderer/SayCmd');
 const Timekeeper = require(process.cwd() + '/src/js/renderer/Timekeeper');
 
-document.getElementById("run").addEventListener("click", function() {
+document.getElementById("play").addEventListener("click", function() {
   document.getElementById("alert").innerHTML = "";
 
   var params = {
@@ -33,6 +33,9 @@ document.getElementById("run").addEventListener("click", function() {
   } else {
     document.getElementById("alert").innerHTML = "Fill fields!";
   }
+});
+
+document.getElementById("stop").addEventListener('click', function() {
 });
 
 var activate = function() {
