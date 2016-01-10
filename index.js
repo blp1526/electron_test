@@ -1,17 +1,26 @@
 const SayCmd = require(process.cwd() + '/src/js/renderer/SayCmd');
 const Timekeeper = require(process.cwd() + '/src/js/renderer/Timekeeper');
 
+SayCmd.voiceList(function(result) {
+  var voiceName = document.getElementById("voiceName");
+  result.forEach(function(e) {
+    var option = document.createElement("option");
+    option.innerText = e;
+    voiceName.appendChild(option);
+  });
+});
+
 document.getElementById("play").addEventListener("click", function() {
   document.getElementById("alert").innerHTML = "";
-
   var params = {
     speakerName:  document.getElementById("speakerName").value,
     limitMinutes: document.getElementById("limitMinutes").value
-  }
+  };
   var tk = new Timekeeper(params);
+  var voiceName = document.getElementById("voiceName").value;
 
   if (tk.isValid()) {
-    SayCmd.spawnSync(tk.message("start"));
+    SayCmd.spawnSync(voiceName, tk.message("start"));
     function repetition() {
       var timeoutlId = setTimeout(repetition, 1000);
       document.getElementById("currentSeconds").innerHTML = tk.currentSeconds + " seconds left";
@@ -20,10 +29,10 @@ document.getElementById("play").addEventListener("click", function() {
           tk.leftMinutes--;
         }
         if (tk.currentSeconds === 60) {
-          SayCmd.spawn(tk.message("progress"));
+          SayCmd.spawn(voiceName, tk.message("progress"));
         }
         if (tk.currentSeconds < 1) {
-          SayCmd.spawn(tk.message("finish"));
+          SayCmd.spawn(voiceName, tk.message("finish"));
           clearTimeout(timeoutlId);
         }
       }
