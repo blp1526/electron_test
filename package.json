@@ -28,5 +28,7 @@
       "es6": true
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "pluralize": "^1.2.1"
+  }
 }
