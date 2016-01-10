@@ -21,9 +21,10 @@ document.getElementById("play").addEventListener("click", function() {
 
   if (tk.isValid()) {
     SayCmd.spawnSync(voiceName, tk.message("start"));
+    document.getElementById("statusBarLeft").innerHTML = tk.speakerName;
     function repetition() {
       var timeoutlId = setTimeout(repetition, 1000);
-      document.getElementById("currentSeconds").innerHTML = tk.currentSeconds + " seconds left";
+      document.getElementById("statusBarRight").innerHTML = tk.currentSeconds + " seconds left";
       if (tk.currentSeconds !== tk.limitSeconds) {
         if (tk.currentSeconds % 60 === 0) {
           tk.leftMinutes--;
