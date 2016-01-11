@@ -1,7 +1,7 @@
 {
-  "name": "electron_test",
-  "version": "1.0.0",
-  "description": "",
+  "name": "lightning-talks-timekeeper",
+  "version": "0.0.1",
+  "description": "A lightning talks timekeeper application for OSX",
   "main": "main.js",
   "scripts": {
     "app": "electron .",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blp1526/electron_test.git"
+    "url": "git+https://github.com/blp1526/lightning-talks-timekeeper.git"
   },
   "author": "Shingo Kawamura",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/blp1526/electron_test/issues"
+    "url": "https://github.com/blp1526/lightning-talks-timekeeper/issues"
   },
-  "homepage": "https://github.com/blp1526/electron_test#readme",
+  "homepage": "https://github.com/blp1526/lightning-talks-timekeeper#readme",
   "devDependencies": {
     "electron-prebuilt": "^0.36.1",
     "mocha": "^2.3.4"
