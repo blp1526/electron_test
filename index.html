@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="assets/stylesheets/photon.css">
     <link rel="stylesheet" href="assets/stylesheets/index.css">
     <script src="index.js" defer></script>
-    <title>Timekeeper</title>
+    <title>Lightning Talks Timekeeper</title>
   </head>
 
   <body>
@@ -33,7 +33,7 @@
           </div>
 
           <div class="pane">
-            <div class="form">
+            <div class="default">
               <p id="alert" class="alert"></p>
               <div class="form-group">
                 <label><span class="icon icon-user right-space"></span>Speaker Name</label>
@@ -50,8 +50,8 @@
               </div>
               <p>Notify when the remaining time is 1 minute.</p>
               <div class="form-actions">
-                <button id="play" class="btn btn-large btn-default"><span class="icon icon-play"></span></button>
-                <button id="stop" class="btn btn-large btn-default undisplay"><span class="icon icon-stop"></span></button>
+                <button id="play" class="btn btn-large btn-default">Play</button>
+                <button id="stop" class="btn btn-large btn-default" disabled>Stop</button>
               </div>
             </div>
           </div>

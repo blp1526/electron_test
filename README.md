@@ -1,2 +1,2 @@
-# electron_test
+# Lightning Talks Timekeeper
 A timekeeper application for OSX
