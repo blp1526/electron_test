@@ -1,5 +1,6 @@
 const SayCmd = require(process.cwd() + '/src/js/renderer/SayCmd');
 const Timekeeper = require(process.cwd() + '/src/js/renderer/Timekeeper');
+const pluralize = require('pluralize');
 var timeoutlId;
 
 SayCmd.voiceList(function(result) {
@@ -30,7 +31,7 @@ document.getElementById("play").addEventListener("click", function() {
     document.getElementById("statusBarLeft").innerText = tk.speakerName;
     function repetition() {
       timeoutlId = setTimeout(repetition, 1000);
-      document.getElementById("statusBarRight").innerText = tk.currentSeconds + " seconds left";
+      document.getElementById("statusBarRight").innerText = `${tk.currentSeconds} ${pluralize("second", tk.currentSeconds)} left`;
       if (tk.currentSeconds !== tk.limitSeconds) {
         if (tk.currentSeconds % 60 === 0) {
           tk.leftMinutes--;
