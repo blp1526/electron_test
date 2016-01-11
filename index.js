@@ -1,17 +1,21 @@
 const SayCmd = require(process.cwd() + '/src/js/renderer/SayCmd');
 const Timekeeper = require(process.cwd() + '/src/js/renderer/Timekeeper');
+var timeoutlId;
 
 SayCmd.voiceList(function(result) {
   var voiceName = document.getElementById("voiceName");
   result.forEach(function(e) {
     var option = document.createElement("option");
     option.innerText = e;
+    if (e === "Ava") {
+      option.selected = true;
+    }
     voiceName.appendChild(option);
   });
 });
 
 document.getElementById("play").addEventListener("click", function() {
-  document.getElementById("alert").innerHTML = "";
+  document.getElementById("alert").innerText = "";
   var params = {
     speakerName:  document.getElementById("speakerName").value,
     limitMinutes: document.getElementById("limitMinutes").value
@@ -20,11 +24,13 @@ document.getElementById("play").addEventListener("click", function() {
   var voiceName = document.getElementById("voiceName").value;
 
   if (tk.isValid()) {
+    document.getElementById("play").disabled = true;
+    document.getElementById("stop").disabled = false;
     SayCmd.spawnSync(voiceName, tk.message("start"));
-    document.getElementById("statusBarLeft").innerHTML = tk.speakerName;
+    document.getElementById("statusBarLeft").innerText = tk.speakerName;
     function repetition() {
-      var timeoutlId = setTimeout(repetition, 1000);
-      document.getElementById("statusBarRight").innerHTML = tk.currentSeconds + " seconds left";
+      timeoutlId = setTimeout(repetition, 1000);
+      document.getElementById("statusBarRight").innerText = tk.currentSeconds + " seconds left";
       if (tk.currentSeconds !== tk.limitSeconds) {
         if (tk.currentSeconds % 60 === 0) {
           tk.leftMinutes--;
@@ -35,17 +41,26 @@ document.getElementById("play").addEventListener("click", function() {
         if (tk.currentSeconds < 1) {
           SayCmd.spawn(voiceName, tk.message("finish"));
           clearTimeout(timeoutlId);
+          document.getElementById("stop").disabled = true;
+          document.getElementById("play").disabled = false;
+          document.getElementById("statusBarLeft").innerText = "";
+          document.getElementById("statusBarRight").innerText = "";
         }
       }
       tk.currentSeconds--;
     }
     repetition();
   } else {
-    document.getElementById("alert").innerHTML = "Fill fields!";
+    document.getElementById("alert").innerText = "Fill fields!";
   }
 });
 
 document.getElementById("stop").addEventListener('click', function() {
+  clearTimeout(timeoutlId);
+  document.getElementById("stop").disabled = true;
+  document.getElementById("play").disabled = false;
+  document.getElementById("statusBarLeft").innerText = "";
+  document.getElementById("statusBarRight").innerText = "";
 });
 
 var activate = function() {
