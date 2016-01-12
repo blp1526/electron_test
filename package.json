@@ -5,9 +5,10 @@
   "main": "main.js",
   "scripts": {
     "app": "electron .",
+    "build": "electron-packager . lightning-talks-timekeeper --platform=darwin --arch=x64 --version=0.36.1",
     "test": "mocha --recursive --reporter spec test",
-    "watch": "mocha --recursive --reporter spec --watch test",
-    "tree": "tree -a -I '.git|node_modules'"
+    "tree": "tree -a -I '.git|node_modules'",
+    "watch": "mocha --recursive --reporter spec --watch test"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/blp1526/lightning-talks-timekeeper#readme",
   "devDependencies": {
+    "electron-packager": "^5.2.0",
     "electron-prebuilt": "^0.36.1",
     "mocha": "^2.3.4"
   },
