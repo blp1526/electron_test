@@ -31,7 +31,9 @@ document.getElementById("play").addEventListener("click", function() {
     document.getElementById("statusBarLeft").innerText = tk.speakerName;
     function repetition() {
       timeoutlId = setTimeout(repetition, 1000);
-      document.getElementById("statusBarRight").innerText = `${tk.currentSeconds} ${pluralize("second", tk.currentSeconds)} left`;
+      var minutes = ("0" + parseInt(tk.currentSeconds / 60)).substr(-2);
+      var seconds = ("0" + (tk.currentSeconds - (60 * minutes))).substr(-2);
+      document.getElementById("statusBarRight").innerText = `${minutes}:${seconds}`;
       if (tk.currentSeconds !== tk.limitSeconds) {
         if (tk.currentSeconds % 60 === 0) {
           tk.leftMinutes--;
