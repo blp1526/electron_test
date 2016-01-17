@@ -1,7 +1,15 @@
 const SayCmd = require(process.cwd() + '/src/js/renderer/SayCmd');
 const Timekeeper = require(process.cwd() + '/src/js/renderer/Timekeeper');
 const pluralize = require('pluralize');
-var timeoutlId;
+var timeoutId;
+
+var clearTimeoutDisplay = function(id) {
+  clearTimeout(id);
+  document.getElementById("stop").disabled = true;
+  document.getElementById("play").disabled = false;
+  document.getElementById("statusBarLeft").innerText = "";
+  document.getElementById("statusBarRight").innerText = "";
+};
 
 SayCmd.voiceList(function(result) {
   var voiceName = document.getElementById("voiceName");
@@ -30,7 +38,7 @@ document.getElementById("play").addEventListener("click", function() {
     SayCmd.spawnSync(voiceName, tk.message("start"));
     document.getElementById("statusBarLeft").innerText = tk.speakerName;
     function repetition() {
-      timeoutlId = setTimeout(repetition, 1000);
+      timeoutId = setTimeout(repetition, 1000);
       var minutes = ("0" + parseInt(tk.currentSeconds / 60)).substr(-2);
       var seconds = ("0" + (tk.currentSeconds - (60 * minutes))).substr(-2);
       document.getElementById("statusBarRight").innerText = `${minutes}:${seconds}`;
@@ -43,11 +51,7 @@ document.getElementById("play").addEventListener("click", function() {
         }
         if (tk.currentSeconds < 1) {
           SayCmd.spawn(voiceName, tk.message("finish"));
-          clearTimeout(timeoutlId);
-          document.getElementById("stop").disabled = true;
-          document.getElementById("play").disabled = false;
-          document.getElementById("statusBarLeft").innerText = "";
-          document.getElementById("statusBarRight").innerText = "";
+          clearTimeoutDisplay(timeoutId);
         }
       }
       tk.currentSeconds--;
@@ -59,11 +63,7 @@ document.getElementById("play").addEventListener("click", function() {
 });
 
 document.getElementById("stop").addEventListener('click', function() {
-  clearTimeout(timeoutlId);
-  document.getElementById("stop").disabled = true;
-  document.getElementById("play").disabled = false;
-  document.getElementById("statusBarLeft").innerText = "";
-  document.getElementById("statusBarRight").innerText = "";
+  clearTimeoutDisplay(timeoutId);
 });
 
 var activate = function() {
