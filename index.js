@@ -1,5 +1,5 @@
-const SayCmd = require(process.cwd() + '/src/js/renderer/SayCmd');
-const Timekeeper = require(process.cwd() + '/src/js/renderer/Timekeeper');
+const SayCmd = require('./src/js/renderer/SayCmd');
+const Timekeeper = require('./src/js/renderer/Timekeeper');
 const pluralize = require('pluralize');
 var timeoutId;
 
