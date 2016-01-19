@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/blp1526/lightning-talks-timekeeper.svg?branch=master)](https://travis-ci.org/blp1526/lightning-talks-timekeeper)
 
-A lightning talks timekeeper application for OSX
+* This is an application that tells the time by human voices.
+* You can choose voices from installed say command en_US voices.
+* This application is powered by Electron, plattoform is only OSX.
 
 ## Development
 ```
