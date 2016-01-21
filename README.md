@@ -6,6 +6,10 @@
 * You can choose voices from installed say command en_US voices.
 * This application is powered by Electron, plattoform is only OSX.
 
+## Installation
+
+[Download a zip file](https://github.com/blp1526/lightning-talks-timekeeper/releases).
+
 ## Development
 ```
 $ npm install
@@ -13,4 +17,4 @@ $ npm run app
 ```
 
 ## Screenshot
-<img src="https://cloud.githubusercontent.com/assets/1040576/12231334/0e7dc34e-b89a-11e5-9a61-d1d21c576238.png" width="500" height="420">
+<img src="https://cloud.githubusercontent.com/assets/1040576/12479687/34542124-c080-11e5-898a-03cbe5c565bd.png" width="500" height="420">
